@@ -66,14 +66,14 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${wildflyPlagin.version}</version>
-                <executions>
+                <!--<executions>
                     <execution>
                         <phase>install</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
                 <configuration>
                     <hostname>127.0.0.1</hostname>
                     <port>9990</port>
