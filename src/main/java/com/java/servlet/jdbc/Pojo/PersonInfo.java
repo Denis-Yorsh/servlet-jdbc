@@ -7,9 +7,11 @@ public class PersonInfo {
     private String phone;
     private String email;
 
-    public PersonInfo() {}
+    public PersonInfo() {
+    }
 
-    public PersonInfo(String country, String phone, String email) {
+    public PersonInfo(Integer infoId, String country, String phone, String email) {
+        this.infoId = infoId;
         this.country = country;
         this.phone = phone;
         this.email = email;
@@ -45,7 +47,8 @@ public class PersonInfo {
 
     @Override
     public String toString() {
-        return "Person Info [infoId = " + infoId +
+        return "Person Info [" +
+                "infoId = " + infoId +
                 ", country = " + country +
                 ", phone = " + phone +
                 ", email = " + email + "]";
