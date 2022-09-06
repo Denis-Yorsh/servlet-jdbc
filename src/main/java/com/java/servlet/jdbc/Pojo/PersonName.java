@@ -9,18 +9,6 @@ public class PersonName extends AdminInfo {
     private String lastName;
     private Integer age;
 
-    public PersonName() {
-    }
-    public PersonName(Integer infoId, String country, String phone, String email,
-                      Integer adminId, Date date, Integer count, Boolean isDelete,
-                      Integer personId, String firstName, String lastName, Integer age) {
-        super(infoId, country, phone, email, adminId, date, count, isDelete);
-        this.personId = personId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
     public Integer getPersonId() {
         return personId;
     }

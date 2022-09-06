@@ -7,22 +7,6 @@ public class PersonInfo {
     private String phone;
     private String email;
 
-    public PersonInfo() {
-    }
-
-    public PersonInfo(String country, String phone, String email) {
-        this.country = country;
-        this.phone = phone;
-        this.email = email;
-    }
-
-    public PersonInfo(Integer infoId, String country, String phone, String email) {
-        this.infoId = infoId;
-        this.country = country;
-        this.phone = phone;
-        this.email = email;
-    }
-
     public Integer getInfoId() {
         return infoId;
     }

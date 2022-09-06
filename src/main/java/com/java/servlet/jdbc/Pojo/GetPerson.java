@@ -7,18 +7,6 @@ public class GetPerson extends PersonInfo {
     private String lastName;
     private Integer age;
 
-    public GetPerson() {
-    }
-
-    public GetPerson(Integer personId, String firstName, String lastName, Integer age,
-                     String country, String phone, String email) {
-        super(country, phone, email);
-        this.personId = personId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
     public Integer getPersonId() {
         return personId;
     }

@@ -9,17 +9,6 @@ public class AdminInfo extends PersonInfo {
     private Integer count;
     private Boolean isDelete;
 
-    public AdminInfo() {
-    }
-    public AdminInfo(Integer infoId, String country, String phone, String email,
-                     Integer adminId, Date date, Integer count, Boolean isDelete) {
-        super(infoId, country, phone, email);
-        this.adminId = adminId;
-        this.date = date;
-        this.count = count;
-        this.isDelete = isDelete;
-    }
-
     public Integer getAdminId() {
         return adminId;
     }

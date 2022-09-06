@@ -1,4 +1,25 @@
 package com.java.servlet.jdbc.ServletsLogics;
 
-public class CrudServlets {
+import com.java.servlet.jdbc.Pojo.PersonName;
+
+public class CrudServlets implements CrudIdea {
+    @Override
+    public Integer create(PersonName personName) {
+        return null;
+    }
+
+    @Override
+    public PersonName readById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public Integer update(PersonName personName) {
+        return null;
+    }
+
+    @Override
+    public Integer delete(Integer id) {
+        return null;
+    }
 }
