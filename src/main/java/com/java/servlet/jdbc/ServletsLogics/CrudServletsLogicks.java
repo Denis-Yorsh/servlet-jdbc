@@ -2,7 +2,7 @@ package com.java.servlet.jdbc.ServletsLogics;
 
 import com.java.servlet.jdbc.Pojo.PersonName;
 
-public class CrudServlets implements CrudIdea {
+public class CrudServletsLogicks implements CrudIdea {
     @Override
     public Integer create(PersonName personName) {
         return null;
