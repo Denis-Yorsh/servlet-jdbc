@@ -77,7 +77,7 @@
                     <hostname>127.0.0.1</hostname>
                     <port>9990</port>
                     <username>admin911</username>
-                    <password>WFLYDM0101</password>
+                    <password></password>
                 </configuration>
             </plugin>
 
