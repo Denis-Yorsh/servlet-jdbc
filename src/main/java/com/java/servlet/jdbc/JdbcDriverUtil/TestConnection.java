@@ -17,13 +17,13 @@ public class TestConnection {
         personName.setLastName("Petrov");
         personName.setAge(25);
         personName.setCountry("Ney York");
-        personName.setPhone("0(34)-23-45-695");
-        personName.setEmail("po9pov@yahoo.com");
+        personName.setPhone("0(34)-33-45-615");
+        personName.setEmail("po01pov@yahoo.com");
 
 //        Integer create = crudLogics.create(personName);
 //        System.out.println(create);
 
-//        Integer delete = crudLogics.delete(33);
-//        System.out.println(delete);
+        Integer delete = crudLogics.delete(34);
+        System.out.println(delete);
     }
 }

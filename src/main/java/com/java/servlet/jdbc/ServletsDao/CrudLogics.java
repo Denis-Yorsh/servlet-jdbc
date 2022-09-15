@@ -7,8 +7,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
 
 public class CrudLogics implements CrudIdea {
+
+    private static final UnaryOperator<String> getSqlRequest = GetRequestToSql::baseDataSqlRequest;
 
     @Override
     public Integer create(PersonName personName) {
@@ -20,32 +23,25 @@ public class CrudLogics implements CrudIdea {
             connection = GetConnection.getConnection();
             connection.setAutoCommit(false);
 
-            String preparedNameSql = "INSERT into person_name(first_name, last_name,age) values (?,?,?) ";
-            String preparedAdminSql = "INSERT into admin_info(dates, pk_uk) values (?,?)";
-            String preparedInfoSql = "INSERT into person_info(country, phone,email, fk_uk) values (?,?,?,?)";
-
-
             PreparedStatement preparedName = connection.prepareStatement
-                    (preparedNameSql, PreparedStatement.RETURN_GENERATED_KEYS);
+                    (getSqlRequest.apply("CreatePreparedNameSql"), PreparedStatement.RETURN_GENERATED_KEYS);
             preparedName.setString(1, personName.getFirstName());
             preparedName.setString(2, personName.getLastName());
             preparedName.setInt(3, personName.getAge());
             status += preparedName.executeUpdate();
 
             long generationId = fetchGeneratedId(preparedName);
-            System.out.println(generationId);
-
 
             java.util.Date dateJava = new java.util.Date();
             java.sql.Date dateSql = new java.sql.Date(dateJava.getTime());
             PreparedStatement preparedAdmin = connection.prepareStatement
-                    (preparedAdminSql);
+                    (getSqlRequest.apply("CreatePreparedAdminSql"));
             preparedAdmin.setDate(1, dateSql);
             preparedAdmin.setInt(2, (int) generationId);
             status += preparedAdmin.executeUpdate();
 
             PreparedStatement preparedInfo = connection.prepareStatement
-                    (preparedInfoSql);
+                    (getSqlRequest.apply("CreatePreparedInfoSql"));
             preparedInfo.setString(1, personName.getCountry());
             preparedInfo.setString(2, personName.getPhone());
             preparedInfo.setString(3, personName.getEmail());
@@ -99,11 +95,11 @@ public class CrudLogics implements CrudIdea {
     public Integer delete(Integer id) {
         Connection connection = null;
         int status = 0;
-        String preparedDeleteSql = "DELETE from person_name WHERE id_pk = ?";
 
         try {
             connection = GetConnection.getConnection();
-            PreparedStatement preparedDelete = connection.prepareStatement(preparedDeleteSql);
+            PreparedStatement preparedDelete = connection.prepareStatement
+                    (getSqlRequest.apply("DeletePreparedSql"));
             preparedDelete.setInt(1, id);
             status = preparedDelete.executeUpdate();
         } catch (SQLException e) {
