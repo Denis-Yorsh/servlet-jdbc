@@ -9,16 +9,16 @@ public class TestConnection {
 
     public static void main(String[] args) {
 
-        Connection connection = GetConnection.getConnection();
-        CrudLogics crudLogics = new CrudLogics();
-
-        PersonName personName = new PersonName();
-        personName.setFirstName("Sveta");
-        personName.setLastName("Sveta");
-        personName.setAge(35);
-        personName.setCountry("Los Angeles");
-        personName.setPhone("83(34)-93-45-915");
-        personName.setEmail("p8o98pov@yahoo.com");
+//        Connection connection = GetConnection.getConnection();
+//        CrudLogics crudLogics = new CrudLogics();
+//
+//        PersonName personName = new PersonName();
+//        personName.setFirstName("Sveta");
+//        personName.setLastName("Sveta");
+//        personName.setAge(35);
+//        personName.setCountry("Los Angeles");
+//        personName.setPhone("83(34)-93-45-915");
+//        personName.setEmail("p8o98pov@yahoo.com");
 
 //        Integer create = crudLogics.create(personName);
 //        System.out.println(create);
