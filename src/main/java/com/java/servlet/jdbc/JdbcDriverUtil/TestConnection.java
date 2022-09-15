@@ -36,8 +36,8 @@ public class TestConnection {
 //                ", email = " + personName.getEmail() + "]");
 //        System.out.println(personName);
 
-        personName.setPersonId(37);
-        Integer update = crudLogics.update(personName);
-        System.out.println(update);
+//        personName.setPersonId(37);
+//        Integer update = crudLogics.update(personName);
+//        System.out.println(update);
     }
 }
