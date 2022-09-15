@@ -24,11 +24,11 @@ public class GetRequestToSql {
                         "ON person_name.id_pk = person_info.fk_uk " +
                         "WHERE person_name.id_pk = ?",
 
-                "UpdatePreparedNameSql",
-                "UPDATE person_name SET first_name = ?,last_name = ?,age = ? WHERE id_pk = ?",
-
-                "UpdatePreparedInfoSql",
-                "UPDATE person_info SET country = ?,phone = ?,email = ? WHERE fk_uk = ?"
+                "UpdatePreparedNameSql", "" +
+                        "UPDATE person_name, person_info " +
+                        "SET person_name.first_name = ?, person_name.last_name = ?, person_name.age = ?, " +
+                        "person_info.country = ?,person_info.phone = ?,person_info.email = ? " +
+                        "WHERE person_name.id_pk = ? AND person_info.fk_uk = ?"
         );
         return baseDataRequest.get(request);
     }

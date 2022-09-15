@@ -13,12 +13,12 @@ public class TestConnection {
         CrudLogics crudLogics = new CrudLogics();
 
         PersonName personName = new PersonName();
-        personName.setFirstName("Mark");
-        personName.setLastName("Sidorov");
-        personName.setAge(50);
+        personName.setFirstName("Sveta");
+        personName.setLastName("Sveta");
+        personName.setAge(35);
         personName.setCountry("Los Angeles");
-        personName.setPhone("83(34)-33-45-615");
-        personName.setEmail("p8o01pov@yahoo.com");
+        personName.setPhone("83(34)-93-45-915");
+        personName.setEmail("p8o98pov@yahoo.com");
 
 //        Integer create = crudLogics.create(personName);
 //        System.out.println(create);
@@ -36,8 +36,8 @@ public class TestConnection {
 //                ", email = " + personName.getEmail() + "]");
 //        System.out.println(personName);
 
-//        personName.setPersonId(36);
-//        Integer update = crudLogics.update(personName);
-//        System.out.println(update);
+        personName.setPersonId(37);
+        Integer update = crudLogics.update(personName);
+        System.out.println(update);
     }
 }

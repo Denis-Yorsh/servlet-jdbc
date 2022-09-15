@@ -125,16 +125,12 @@ public class CrudLogics implements CrudIdea {
             preparedName.setString(1, personName.getFirstName());
             preparedName.setString(2, personName.getLastName());
             preparedName.setInt(3, personName.getAge());
-            preparedName.setInt(4, personName.getPersonId());
+            preparedName.setString(4, personName.getCountry());
+            preparedName.setString(5, personName.getPhone());
+            preparedName.setString(6, personName.getEmail());
+            preparedName.setInt(7, personName.getPersonId());
+            preparedName.setInt(8, personName.getPersonId());
             status += preparedName.executeUpdate();
-
-            PreparedStatement preparedInfo = connection.prepareStatement
-                    (getSqlRequest.apply("UpdatePreparedInfoSql"));
-            preparedInfo.setString(1, personName.getCountry());
-            preparedInfo.setString(2, personName.getPhone());
-            preparedInfo.setString(3, personName.getEmail());
-            preparedInfo.setInt(4, personName.getPersonId());
-            status += preparedInfo.executeUpdate();
 
             connection.commit();
 
