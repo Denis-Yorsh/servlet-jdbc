@@ -83,26 +83,67 @@ public class CrudLogics implements CrudIdea {
 
     @Override
     public PersonName readById(Integer id) {
-        return null;
+
+        PersonName personName = new PersonName();
+
+        try (Connection connection = GetConnection.getConnection()){
+
+            PreparedStatement preparedRead = connection.prepareStatement
+                    (getSqlRequest.apply("ReadPreparedSql"));
+            preparedRead.setInt(1, id);
+            ResultSet resultSet = preparedRead.executeQuery();
+
+            if (resultSet.next()) {
+                personName.setPersonId(resultSet.getInt("id_pk"));
+                personName.setFirstName(resultSet.getString("first_name"));
+                personName.setLastName(resultSet.getString("last_name"));
+                personName.setAge(resultSet.getInt("age"));
+                personName.setCountry(resultSet.getString("country"));
+                personName.setPhone(resultSet.getString("phone"));
+                personName.setEmail(resultSet.getString("email"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return personName;
     }
 
     @Override
     public Integer update(PersonName personName) {
-        return null;
-    }
 
-    @Override
-    public Integer delete(Integer id) {
         Connection connection = null;
         int status = 0;
 
         try {
             connection = GetConnection.getConnection();
-            PreparedStatement preparedDelete = connection.prepareStatement
-                    (getSqlRequest.apply("DeletePreparedSql"));
-            preparedDelete.setInt(1, id);
-            status = preparedDelete.executeUpdate();
+            connection.setAutoCommit(false);
+
+            PreparedStatement preparedName = connection.prepareStatement
+                    (getSqlRequest.apply("UpdatePreparedNameSql"));
+            preparedName.setString(1, personName.getFirstName());
+            preparedName.setString(2, personName.getLastName());
+            preparedName.setInt(3, personName.getAge());
+            preparedName.setInt(4, personName.getPersonId());
+            status += preparedName.executeUpdate();
+
+            PreparedStatement preparedInfo = connection.prepareStatement
+                    (getSqlRequest.apply("UpdatePreparedInfoSql"));
+            preparedInfo.setString(1, personName.getCountry());
+            preparedInfo.setString(2, personName.getPhone());
+            preparedInfo.setString(3, personName.getEmail());
+            preparedInfo.setInt(4, personName.getPersonId());
+            status += preparedInfo.executeUpdate();
+
+            connection.commit();
+
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
             throw new RuntimeException(e);
         } finally {
             if (connection != null) {
@@ -114,6 +155,24 @@ public class CrudLogics implements CrudIdea {
             }
         }
 
+        return status;
+    }
+
+    @Override
+    public Integer delete(Integer id) {
+
+        int status = 0;
+
+        try (Connection connection = GetConnection.getConnection()){
+
+            PreparedStatement preparedDelete = connection.prepareStatement
+                    (getSqlRequest.apply("DeletePreparedSql"));
+            preparedDelete.setInt(1, id);
+            status = preparedDelete.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return status;
     }
 }

@@ -13,17 +13,31 @@ public class TestConnection {
         CrudLogics crudLogics = new CrudLogics();
 
         PersonName personName = new PersonName();
-        personName.setFirstName("Sasha");
-        personName.setLastName("Petrov");
-        personName.setAge(25);
-        personName.setCountry("Ney York");
-        personName.setPhone("0(34)-33-45-615");
-        personName.setEmail("po01pov@yahoo.com");
+        personName.setFirstName("Mark");
+        personName.setLastName("Sidorov");
+        personName.setAge(50);
+        personName.setCountry("Los Angeles");
+        personName.setPhone("83(34)-33-45-615");
+        personName.setEmail("p8o01pov@yahoo.com");
 
 //        Integer create = crudLogics.create(personName);
 //        System.out.println(create);
 
-        Integer delete = crudLogics.delete(34);
-        System.out.println(delete);
+//        Integer delete = crudLogics.delete(34);
+//        System.out.println(delete);
+
+//        personName = crudLogics.readById(36);
+//        System.out.println("Person Name [person Id = " + personName.getPersonId() +
+//                ", firstName = " + personName.getFirstName() +
+//                ", lastName = " + personName.getLastName() +
+//                ", age = " + personName.getAge() +
+//                ", country = " + personName.getCountry() +
+//                ", phone = " + personName.getPhone() +
+//                ", email = " + personName.getEmail() + "]");
+//        System.out.println(personName);
+
+//        personName.setPersonId(36);
+//        Integer update = crudLogics.update(personName);
+//        System.out.println(update);
     }
 }

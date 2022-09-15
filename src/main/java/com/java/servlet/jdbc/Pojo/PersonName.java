@@ -39,11 +39,15 @@ public class PersonName extends AdminInfo {
 
     @Override
     public String toString() {
+        PersonInfo personInfo = new PersonInfo();
         return "Person Name [" +
-                "personId=" + personId +
+                "person Id = " + personId +
                 ", firstName = " + firstName +
                 ", lastName = " + lastName +
-                ", age=" + age +
+                ", age = " + age +
+                ", country = " + personInfo.getCountry() +
+                ", phone = " + personInfo.getPhone() +
+                ", email = " + personInfo.getEmail() +
                 "]";
     }
 }
