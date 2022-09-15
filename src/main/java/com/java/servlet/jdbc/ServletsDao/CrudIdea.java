@@ -1,4 +1,4 @@
-package com.java.servlet.jdbc.ServletsLogics;
+package com.java.servlet.jdbc.ServletsDao;
 
 import com.java.servlet.jdbc.Pojo.PersonName;
 
