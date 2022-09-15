@@ -29,13 +29,10 @@ public class AuthenticationFilter implements Filter {
 
         HttpSession session = req.getSession(false);
 
-        Boolean isTrue = uri.endsWith("myServlet/saveServlet") ||
-                uri.endsWith("myServlet/loginServlet") ||
-                uri.endsWith("myServlet/viewByIDServlet") ||
-                uri.endsWith("myServlet/putServlet") ||
-                uri.endsWith("myServlet/viewServlet") ||
-                uri.endsWith("myServlet/deleteServlet") ||
-                uri.endsWith("myServlet/isDeleteServlet");
+        boolean isTrue = uri.endsWith("servlet-jdbc/createServletJdbc") ||
+                uri.endsWith("servlet-jdbc/loginServlet") ||
+                uri.endsWith("servlet-jdbc/viewByIDServlet") ||
+                uri.endsWith("servlet-jdbc/putServlet");
         if (session == null && !isTrue) {
             this.context.log("<<< Unauthorized access request");
             PrintWriter out = res.getWriter();
