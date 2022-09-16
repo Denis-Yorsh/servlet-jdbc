@@ -11,12 +11,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.function.Function;
 
-@WebServlet("/createServletJdbc")
-public class CreateServlet extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+@WebServlet("/updateServletJdbc")
+public class UpdateByIdServlet extends HttpServlet {
 
-        response.setContentType("text/plain");
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) {
+
+        response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
         PrintWriter out;
@@ -26,6 +27,8 @@ public class CreateServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        String id = request.getParameter("id");
+        Integer getId = Integer.parseInt(id);
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String age = request.getParameter("age");
@@ -35,6 +38,7 @@ public class CreateServlet extends HttpServlet {
         String email = request.getParameter("email");
 
         PersonName personName = new PersonName();
+        personName.setPersonId(getId);
         personName.setFirstName(firstName);
         personName.setLastName(lastName);
         personName.setAge(intAge);
@@ -43,18 +47,21 @@ public class CreateServlet extends HttpServlet {
         personName.setEmail(email);
 
         CrudLogics crudLogics = new CrudLogics();
-        Function<PersonName, Integer> getGenerationId = crudLogics::create;
-        Integer getId = getGenerationId.apply(personName);
+        Function<PersonName, Integer> updateById = crudLogics::update;
+        Integer getStatus = updateById.apply(personName);
 
         try {
-            if (getId > 0) {
-                out.println("Record saved successfully! Your ID = " + getId);
+            if (getStatus > 0) {
+                try {
+                    response.sendRedirect("readServletJdbc?id=" + getId);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
-                out.println("Sorry! unable to save record");
+                out.println("Sorry! unable to update record");
             }
         } finally {
             if (out != null) { out.close(); }
         }
-
     }
 }

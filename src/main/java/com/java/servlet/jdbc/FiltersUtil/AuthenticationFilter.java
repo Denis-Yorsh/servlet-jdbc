@@ -31,7 +31,7 @@ public class AuthenticationFilter implements Filter {
 
         boolean isTrue = uri.endsWith("servlet-jdbc/createServletJdbc") ||
                 uri.endsWith("servlet-jdbc/readServletJdbc") ||
-                uri.endsWith("servlet-jdbc/viewByIDServlet") ||
+                uri.endsWith("servlet-jdbc/updateServletJdbc") ||
                 uri.endsWith("servlet-jdbc/putServlet");
         if (session == null && !isTrue) {
             this.context.log("<<< Unauthorized access request");
