@@ -26,6 +26,26 @@ public class CreateServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        PersonName personName = getPersonName(request);
+
+        CrudLogics crudLogics = new CrudLogics();
+        Function<PersonName, Integer> getGenerationId = crudLogics::create;
+        Integer getId = getGenerationId.apply(personName);
+
+        try {
+            if (getId > 0) {
+                out.println("Record saved successfully! Your ID = " + getId);
+            } else {
+                out.println("Sorry! unable to save record");
+            }
+        } finally {
+            if (out != null) { out.close(); }
+        }
+
+    }
+
+    private PersonName getPersonName(HttpServletRequest request) {
+
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String age = request.getParameter("age");
@@ -42,19 +62,6 @@ public class CreateServlet extends HttpServlet {
         personName.setPhone(phone);
         personName.setEmail(email);
 
-        CrudLogics crudLogics = new CrudLogics();
-        Function<PersonName, Integer> getGenerationId = crudLogics::create;
-        Integer getId = getGenerationId.apply(personName);
-
-        try {
-            if (getId > 0) {
-                out.println("Record saved successfully! Your ID = " + getId);
-            } else {
-                out.println("Sorry! unable to save record");
-            }
-        } finally {
-            if (out != null) { out.close(); }
-        }
-
+        return personName;
     }
 }

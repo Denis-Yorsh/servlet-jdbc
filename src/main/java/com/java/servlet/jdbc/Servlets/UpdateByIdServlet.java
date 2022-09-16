@@ -29,22 +29,7 @@ public class UpdateByIdServlet extends HttpServlet {
 
         String id = request.getParameter("id");
         Integer getId = Integer.parseInt(id);
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String age = request.getParameter("age");
-        int intAge = Integer.parseInt(age);
-        String country = request.getParameter("country");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
-
-        PersonName personName = new PersonName();
-        personName.setPersonId(getId);
-        personName.setFirstName(firstName);
-        personName.setLastName(lastName);
-        personName.setAge(intAge);
-        personName.setCountry(country);
-        personName.setPhone(phone);
-        personName.setEmail(email);
+        PersonName personName = getPersonName(request, getId);
 
         CrudLogics crudLogics = new CrudLogics();
         Function<PersonName, Integer> updateById = crudLogics::update;
@@ -63,5 +48,27 @@ public class UpdateByIdServlet extends HttpServlet {
         } finally {
             if (out != null) { out.close(); }
         }
+    }
+
+    private PersonName getPersonName(HttpServletRequest request, Integer getId) {
+
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String age = request.getParameter("age");
+        int intAge = Integer.parseInt(age);
+        String country = request.getParameter("country");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+
+        PersonName personName = new PersonName();
+        personName.setPersonId(getId);
+        personName.setFirstName(firstName);
+        personName.setLastName(lastName);
+        personName.setAge(intAge);
+        personName.setCountry(country);
+        personName.setPhone(phone);
+        personName.setEmail(email);
+
+        return personName;
     }
 }
