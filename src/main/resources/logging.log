@@ -25,3 +25,7 @@
 2022-09-16 13:12:53 INFO  GetConnection:31 - Connection is ON, User = root
 2022-09-16 13:12:53 INFO  stdout:71 - Connected to the MySQL server successfully.
 2022-09-16 13:12:53 INFO  GetConnection:31 - Connection is ON, User = root
+2022-09-16 13:30:02 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 13:30:02 INFO  GetConnection:31 - Connection is ON, User = root
+2022-09-16 13:30:04 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 13:30:04 INFO  GetConnection:31 - Connection is ON, User = root

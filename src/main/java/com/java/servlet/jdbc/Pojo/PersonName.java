@@ -37,17 +37,4 @@ public class PersonName extends AdminInfo {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        PersonInfo personInfo = new PersonInfo();
-        return "Person Name [" +
-                "person Id = " + personId +
-                ", firstName = " + firstName +
-                ", lastName = " + lastName +
-                ", age = " + age +
-                ", country = " + personInfo.getCountry() +
-                ", phone = " + personInfo.getPhone() +
-                ", email = " + personInfo.getEmail() +
-                "]";
-    }
 }

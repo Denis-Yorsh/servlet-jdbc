@@ -37,13 +37,4 @@ public class AdminInfo extends PersonInfo {
         isDelete = delete;
     }
 
-    @Override
-    public String toString() {
-        return "Admin Info [" +
-                "adminId = " + adminId +
-                ", date = " + date +
-                ", count = " + count +
-                ", isDelete = " + isDelete +
-                "]";
-    }
 }

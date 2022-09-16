@@ -35,12 +35,4 @@ public class PersonInfo {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Person Info [" +
-                "infoId = " + infoId +
-                ", country = " + country +
-                ", phone = " + phone +
-                ", email = " + email + "]";
-    }
 }
