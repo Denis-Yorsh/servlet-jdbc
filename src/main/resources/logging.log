@@ -1,0 +1,17 @@
+2022-09-16 12:23:23 INFO  servlet:382 - >>> AuthenticationFilter initialized
+2022-09-16 12:23:23 INFO  servlet:382 - RequestLoggingFilter initialized
+2022-09-16 12:23:23 INFO  servlet:382 - Requested Resource::http://localhost:8080/servlet-jdbc/createServletJdbc
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{country=Ukraine}
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{firstName=Den}
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{lastName=Den}
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{phone=0(02)-32-65-200}
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{age=23}
+2022-09-16 12:23:23 INFO  servlet:382 - 127.0.0.1::Request Params::{email=p8o98p4ov@yahoo.com}
+2022-09-16 12:23:23 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 12:23:23 INFO  GetConnection:31 - Connection is ON, User = root
+2022-09-16 12:39:16 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 12:39:16 INFO  GetConnection:31 - Connection is ON, User = root
+2022-09-16 12:41:05 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 12:41:05 INFO  GetConnection:31 - Connection is ON, User = root
+2022-09-16 12:42:08 INFO  stdout:71 - Connected to the MySQL server successfully.
+2022-09-16 12:42:08 INFO  GetConnection:31 - Connection is ON, User = root

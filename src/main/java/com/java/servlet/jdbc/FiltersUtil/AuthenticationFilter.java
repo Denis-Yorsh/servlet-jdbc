@@ -30,7 +30,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = req.getSession(false);
 
         boolean isTrue = uri.endsWith("servlet-jdbc/createServletJdbc") ||
-                uri.endsWith("servlet-jdbc/loginServlet") ||
+                uri.endsWith("servlet-jdbc/readServletJdbc") ||
                 uri.endsWith("servlet-jdbc/viewByIDServlet") ||
                 uri.endsWith("servlet-jdbc/putServlet");
         if (session == null && !isTrue) {
