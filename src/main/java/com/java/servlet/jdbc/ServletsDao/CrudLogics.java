@@ -18,6 +18,7 @@ public class CrudLogics implements CrudIdea {
 
         Connection connection = null;
         int status = 0;
+        long generationId;
 
         try {
             connection = GetConnection.getConnection();
@@ -30,7 +31,7 @@ public class CrudLogics implements CrudIdea {
             preparedName.setInt(3, personName.getAge());
             status += preparedName.executeUpdate();
 
-            long generationId = fetchGeneratedId(preparedName);
+            generationId = fetchGeneratedId(preparedName);
 
             java.util.Date dateJava = new java.util.Date();
             java.sql.Date dateSql = new java.sql.Date(dateJava.getTime());
@@ -67,7 +68,7 @@ public class CrudLogics implements CrudIdea {
             }
         }
 
-        return status;
+        return Math.toIntExact(generationId);
     }
 
     private static long fetchGeneratedId(PreparedStatement insertStatement) throws SQLException {
